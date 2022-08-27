@@ -1,0 +1,42 @@
+{
+  "name": "bookapi",
+  "version": "1.0.0",
+  "description": "Book API NODEJS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BinaryCodeLA/BookAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BinaryCodeLA/BookAPI/issues"
+  },
+  "homepage": "https://github.com/BinaryCodeLA/BookAPI#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "jest": "^29.0.1",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "supertest": "^6.2.4",
+    "typeorm": "^0.3.8",
+    "typescript": "^4.8.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^28.1.8",
+    "@types/node": "^18.7.13",
+    "@types/supertest": "^2.0.12",
+    "@types/uuid": "^8.3.4",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1"
+  }
+}
