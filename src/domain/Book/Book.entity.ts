@@ -3,4 +3,5 @@ export interface Book {
     Title: string
     Author: string
     Year_Public: number
+    Status: boolean
 }
