@@ -5,7 +5,7 @@ import { ReviewRepository } from '../../domain/Review/Review.repository';
 export class BookUseCase {
     constructor(private readonly bookRepo: BookRepository, private readonly reviewRep: ReviewRepository){}
 
-    public registerBook = async ({title, author, year}) => {
+    public registerBook = async (title:string, author:string, year:number) => {
         
         const bookValue = new BookValue({title, author, year })
         const bookCreated = await this.bookRepo.RegisterBook(bookValue)
