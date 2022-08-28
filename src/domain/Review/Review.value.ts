@@ -5,12 +5,12 @@ export class ReviewValue implements Review{
     Id: string
     Description: string
     Points: number
-    Id_Book: string
+    idBook: string
     constructor({description, point, idBook}:{description:string; point:number, idBook:string}){
         this.Id = uuid()
         this.Description = description
         this.Points = point
-        this.Id_Book = idBook      
+        this.idBook = idBook      
     }
 
 }

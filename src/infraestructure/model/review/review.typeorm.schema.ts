@@ -1,10 +1,9 @@
 import {Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, BaseEntity, Index, ManyToOne} from 'typeorm'
 import { Review } from '../../../domain/Review/Review.entity';
-import { Books } from '../book/book.typeorm.schema';
 
 
 @Entity()
-@Index(["Book"])
+@Index(["idBook"])
 export class Reviews extends BaseEntity implements Review{
 
     @PrimaryColumn()
@@ -16,8 +15,8 @@ export class Reviews extends BaseEntity implements Review{
     @Column()
     Points: number  
     
-    @ManyToOne(()=>Books,(book)=> book.Review)
-    Book: Books
+    @Column({default:null})
+    idBook: string
 
     @CreateDateColumn()
     createdAt: Date

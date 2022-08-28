@@ -7,12 +7,13 @@ export class ReviewOrmRepository implements ReviewRepository {
         const reviewSave = await Reviews.save({
             Id: review.Id,
             Description: review.Description,
-            Points: review.Points
+            Points: review.Points,
+            idBook: review.idBook
         })
         return reviewSave
     }
-    async FindByBook(id: string): Promise<Review | null> {
-        const review = await Reviews.findOneBy<Reviews>({Id: id})
+    async FindByBook(id: string): Promise<Review[] | null> {
+        const review = await Reviews.findBy<Reviews>({idBook: id})        
         return review
     }
     

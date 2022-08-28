@@ -20,8 +20,8 @@ export class BookController {
     }
 
 
-    public getBookByTitle =async ({query}: Request, res: Response) => {
-        const { title } = query
+    public getBookByTitle =async ({params}: Request, res: Response) => {
+        const { title } = params
 
         if(title == undefined)
             return res.status(400).send({"message":"title is missing"})
@@ -58,9 +58,8 @@ export class BookController {
         }
     }
 
-    public deleteBook = async ({query}: Request, res: Response) => {
-        const {id} = query
-
+    public deleteBook = async ({params}: Request, res: Response) => {
+        const {id} = params       
         if(id == undefined )
             return res.status(400).send({"message":"Book Id is missing"})
 

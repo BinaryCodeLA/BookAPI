@@ -7,7 +7,7 @@ import { ReviewValue } from '../../domain/Review/Review.value';
 export class ReviewUseCase {
     constructor( private readonly reviewRep: ReviewRepository, private readonly bookRepo: BookRepository){}
 
-    public registerBook = async ({description, point, idBook}) => {    
+    public registerReview = async (description:string, point:number, idBook:string) => {    
         
         const book = await this.bookRepo.FindById(idBook);
         let reviewCreated: any
@@ -19,7 +19,7 @@ export class ReviewUseCase {
     }
 
   
-    public getAllBooks = async ({idBook}) => {
+    public getAllReviews = async ({idBook}) => {      
         const reviews = await this.reviewRep.FindByBook(idBook)                
         return reviews
     }

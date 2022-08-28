@@ -18,7 +18,6 @@ export class BookUseCase {
         const reviews = await this.reviewRep.FindByBook(idBook)
 
         const BookResult = {
-
             book,
             review: reviews
         }

@@ -1,6 +1,5 @@
 import {Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, BaseEntity, Index, OneToMany} from 'typeorm'
 import { Book } from '../../../domain/Book/Book.entity';
-import { Reviews } from '../review/review.typeorm.schema';
 
 @Entity()
 @Index(["Title"])
@@ -21,9 +20,6 @@ export class Books extends BaseEntity implements Book {
 
     @Column()
     Status: boolean
-
-    @OneToMany(()=>Reviews,(review)=> review.Book)
-    Review: Reviews[]
 
     @CreateDateColumn()
     createdAt: Date
