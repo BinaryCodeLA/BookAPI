@@ -9,7 +9,7 @@ const AppDataSource = new DataSource({
     username: process.env.PS_USER || "admin",
     password: process.env.PS_PW || "secret",
     database: process.env.PS_DB || "booksdb",
-    synchronize: false,
+    synchronize: process.env.Environment != "TEST" ? true : false,
     migrationsRun:false,
     logging: true,
     entities: [Books, Reviews],

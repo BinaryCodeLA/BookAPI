@@ -8,10 +8,9 @@ import { MockReviewRepository } from '../../repository/Review/MockReviewpostgres
 
 
 const bookRoute  =  Router()
-const bookRepo = process.env.Environment == "TEST" ? new MockBookRepository() : new BookOrmRepository()
-const reviewRepo = process.env.Environment == "TEST" ? new MockReviewRepository() : new ReviewOrmRepository
-// const bookRepo =  new BookOrmRepository()
-// const reviewRepo =  new ReviewOrmRepository
+const bookRepo = process.env.Environment == "DEV" ? new BookOrmRepository() : new MockBookRepository() 
+const reviewRepo = process.env.Environment == "DEV" ? new ReviewOrmRepository : new MockReviewRepository()  
+
 const bookUseCase = new BookUseCase(bookRepo,reviewRepo)
 const bookControler = new BookController(bookUseCase)
 
