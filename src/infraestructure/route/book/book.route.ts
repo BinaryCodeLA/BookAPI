@@ -3,12 +3,15 @@ import { BookUseCase } from '../../../application/Book/BookCase';
 import { BookController } from '../../controllers/Book/book.ctrl';
 import { BookOrmRepository } from '../../repository/Book/Bookpostgres.respository';
 import { ReviewOrmRepository } from '../../repository/Review/Reviewpostgress.respository';
-import {MockBookRepository} from "../../repository/Book/MockBook.Repository"
+import { MockBookRepository } from '../../repository/Book/MockBook.Repository';
+import { MockReviewRepository } from '../../repository/Review/MockReviewpostgress.respository';
+
 
 const bookRoute  =  Router()
-const bookRepo = new BookOrmRepository()
-// const bookRepo = new MockBookRepository()
-const reviewRepo = new ReviewOrmRepository
+const bookRepo = process.env.Environment == "TEST" ? new MockBookRepository() : new BookOrmRepository()
+const reviewRepo = process.env.Environment == "TEST" ? new MockReviewRepository() : new ReviewOrmRepository
+// const bookRepo =  new BookOrmRepository()
+// const reviewRepo =  new ReviewOrmRepository
 const bookUseCase = new BookUseCase(bookRepo,reviewRepo)
 const bookControler = new BookController(bookUseCase)
 

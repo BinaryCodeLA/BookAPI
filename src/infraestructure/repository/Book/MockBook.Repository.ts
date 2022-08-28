@@ -1,7 +1,6 @@
 import { Book } from '../../../domain/Book/Book.entity';
 import { BookRepository } from '../../../domain/Book/Book.repository';
-import { Books } from '../../model/book/book.typeorm.schema';
-import { v4 as uuid } from 'uuid';
+
 
 
 const MockBook = {
@@ -27,15 +26,8 @@ export class MockBookRepository implements BookRepository {
         const books = [MockBook, MockBook, MockBook]
         return books
     }
-    async RegisterBook(book: Book): Promise<Book | null> {
-        const bookSave = {
-            Id: uuid(),
-            Title: book.Title,
-            Author: book.Author,
-            Year_Public: book.Year_Public,
-            Status: book.Status
-        }
-        return bookSave
+    async RegisterBook(book: Book): Promise<Book | null> {       
+        return MockBook
     }
     async UpdateBook(filter: object, updated: object): Promise<number | null> {
         const bookUpdated = 1        

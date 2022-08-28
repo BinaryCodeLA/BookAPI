@@ -17,13 +17,16 @@ app.use(helmet.frameguard({action:'deny'}))
 const PORT = process.env.PORT || 5001
 
  app.use(router)
-AppDataSource.initialize()
-.then(()=>{
-    console.log("PS conections is ready!")
-})
-.catch((error)=>{
-    console.log("PS Wrong connection: ", error)
-})
+if (process.env.Environment != "TEST") {
+    AppDataSource.initialize()
+        .then(() => {
+            console.log("PS conections is ready!")
+
+        })
+        .catch((error) => {
+            console.log("PS Wrong connection: ", error)
+        })
+}
 
 app.listen(PORT, ()=> console.log(`Backend is UP, PORT ${PORT}`))
 
