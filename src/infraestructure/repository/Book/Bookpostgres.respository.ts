@@ -11,7 +11,7 @@ export class BookOrmRepository implements BookRepository {
         const book = await Books.findOneBy<Books>({Id: id, Status:true})
         return book
     }
-    async ListBooks(): Promise<Book[]> {
+    async ListBooks(status=true): Promise<Book[]> {
         const books = await Books.findBy<Books>({Status:true})
         return books
     }

@@ -36,7 +36,7 @@ export class BookController {
 
     public getBooks =async ({query}: Request, res: Response) => {          
             
-        const book = await this.bookCase.getAllBooks()
+        const book = await this.bookCase.getAllBooks(true)
 
         if(book == undefined || book == null)
             return res.status(404).send({"message":"Books not found"})
@@ -72,6 +72,4 @@ export class BookController {
     }
 }
 
-function year(title: string, author: string, year: any) {
-    throw new Error('Function not implemented.');
-}
+

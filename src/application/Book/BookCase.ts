@@ -25,10 +25,10 @@ export class BookUseCase {
 
         return BookResult
     }
-    public getAllBooks = async () => {
-        const book = await this.bookRepo.ListBooks()
+    public getAllBooks = async (status=true) => {
+        const book = await this.bookRepo.ListBooks(status)
         let BookResult: any[] = []
-       for (const item of book) {        
+       for (const item of book) {       
         let reviews = await this.reviewRep.FindByBook(item.Id)
         let bookResult = {
             book: item,
