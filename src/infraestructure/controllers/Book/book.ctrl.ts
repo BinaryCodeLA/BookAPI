@@ -28,7 +28,7 @@ export class BookController {
             
         const book = await this.bookCase.getBookDetailByTitle(`${title}`)
 
-        if(book == undefined || book == null)
+        if(book.book == undefined || book.book == null)
             return res.status(404).send({"message":"Book not found"})
         
         res.status(200).send(book)

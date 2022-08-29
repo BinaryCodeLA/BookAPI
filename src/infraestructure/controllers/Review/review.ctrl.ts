@@ -15,7 +15,7 @@ export class ReviewController {
         const review = await this.reviewCase.registerReview(description,point, idBook)
 
         if(review == undefined || review == null)
-            return res.status(500).send({"message":"Something was wrong, book is not saved"})
+            return res.status(404).send({"message":"Book not found to add review"})
 
         res.status(201).send(review)
     }

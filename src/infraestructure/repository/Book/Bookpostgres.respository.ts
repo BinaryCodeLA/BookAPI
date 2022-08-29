@@ -4,15 +4,15 @@ import { Books } from '../../model/book/book.typeorm.schema';
 
 export class BookOrmRepository implements BookRepository {
     async FindByTitle(title: string): Promise<Book | null> {
-        const book = await Books.findOneBy<Books>({Title: title})
+        const book = await Books.findOneBy<Books>({Title: title, Status:true})
         return book
     }
     async FindById(id: string): Promise<Book | null> {
-        const book = await Books.findOneBy<Books>({Id: id})
+        const book = await Books.findOneBy<Books>({Id: id, Status:true})
         return book
     }
     async ListBooks(): Promise<Book[]> {
-        const books = await Books.find<Books>()
+        const books = await Books.findBy<Books>({Status:true})
         return books
     }
     async RegisterBook(book: Book): Promise<Book | null> {
